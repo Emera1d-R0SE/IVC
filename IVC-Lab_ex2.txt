@@ -1,0 +1,100 @@
+Question1
+git init ProjectRepo
+cd ProjectRepo
+echo "*.log" > .gitignore
+git add .gitignore
+git commit -m "Add .gitignore to exclude .log files"
+git remote add origin https://github.com/username/ProjectRepo.git
+
+
+git branch development
+git checkout development
+echo "Initial development notes" > dev_notes.txt
+git add dev_notes.txt
+git commit -m "Add development notes"
+git push -u origin development
+
+
+
+echo "More detailed development notes" >> dev_notes.txt
+git add dev_notes.txt
+git commit -m "Update dev_notes.txt"
+git checkout main
+echo "Updates from main branch" >> dev_notes.txt
+git add dev_notes.txt
+git commit -m "Update dev_notes.txt from main"
+git merge development
+
+
+
+echo "Erroneous change" >> dev_notes.txt
+git add dev_notes.txt
+git commit -m "Introduce an error in dev_notes.txt"
+git log
+git revert <commit-id>
+
+
+
+Question 2
+Task1
+git init ProjectX
+cd ProjectX
+git init
+echo "Project Objectives: To create a streamlined Git workflow and showcase branching techniques." > README.md
+git add README.md
+git commit -m "Add README file with project objectives"
+ 
+
+
+Task-2
+git checkout -b development
+echo "Development Guidelines: Ensure clean code and follow best practices." > dev_notes.txt
+git add dev_notes.txt
+git commit -m "Add development notes"
+
+
+Task-3
+git checkout -b feature1
+echo "Feature 1 implementation details: Initial setup and configuration." >> dev_notes.txt
+git add dev_notes.txt
+git commit -m "Added Feature 1 implementation details to dev_notes.txt"
+git checkout development
+git merge feature1
+git add dev_notes.txt
+git commit -m "Resolve conflict while merging feature1 into development"
+
+Task-4
+echo "changes in progress for new feature." >> dev_notes.txt
+git stash
+git checkout main
+echo "contribution guidelines in CONTRIBUTING.md." >> README.md
+git add README.md
+git commit -m "Update README.md with contribution guidelines"
+git checkout development
+git stash apply
+
+
+Question3
+
+git clone https://github.com/your-username/ProjectA.git
+cd ProjectA
+git checkout -b bug-fix
+git add error_log.txt
+git commit -m "Correct spelling and formatting errors in error_log.txt"
+git push origin bug-fix
+
+Question4
+git checkout feature-x
+echo "notes about feature" > new_feature.md
+git stash save "Work on new_feature.md"
+git checkout development
+echo "Urgent fix done" > urgent_fix.txt
+echo "Urgent fix done" > urgent_fix.txt
+git add urgent_fix.txt
+git commit -m "Apply urgent fix"
+git checkout feature-x
+git stash pop
+echo "Additional details about the new feature" >> new_feature.md
+git add new_feature.md
+git commit -m "Update new_feature.md with additional details"
+
